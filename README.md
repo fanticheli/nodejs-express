@@ -1,2 +1,3 @@
-# back-conversor-de-moedas-
-Web API com Node.js
+# back-conversor-de-moedas
+
+Web Api Resful javascript utilizando nodejs + expressjs
