@@ -1,0 +1,19 @@
+{
+  "name": "back-conversor-de-moedas-",
+  "version": "1.0.0",
+  "description": "Web API com Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanticheli/back-conversor-de-moedas-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fanticheli/back-conversor-de-moedas-/issues"
+  },
+  "homepage": "https://github.com/fanticheli/back-conversor-de-moedas-#readme"
+}
