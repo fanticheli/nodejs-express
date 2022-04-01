@@ -1,19 +1,11 @@
 // configuração inicial
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const connectDb = require("./database/database");
 
-require("dotenv").config();
-
-// CONECTANDO AO DB
-mongoose
-  .connect(process.env.MONGO_CONNECTION)
-  .then(() => {
-    console.log("Banco de dados conectado!!!");
-  })
-  .catch((err) => {
-    console.log("Eita, algo deu errado com a conexão do banco! ", err);
-  });
+connectDb();
 
 // INICIANDO APP
 const app = express();
