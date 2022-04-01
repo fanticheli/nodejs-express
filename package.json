@@ -4,7 +4,8 @@
   "description": "Web API com Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx mocha -w --parallel ./__tests__/**/*.test.js",
+    "test:cov": "npx nyc npx mocha --parallel ./__tests__/**/*.test.js",
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
@@ -19,8 +20,11 @@
   },
   "homepage": "https://github.com/fanticheli/back-conversor-de-moedas-#readme",
   "devDependencies": {
+    "chai": "^4.3.6",
     "mocha": "^9.2.2",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "supertest": "^6.2.2"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
