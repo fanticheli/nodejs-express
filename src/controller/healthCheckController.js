@@ -3,8 +3,6 @@ const ip = require("ip");
 const hostname = os.hostname();
 
 class HealthCheckController {
-  contructor() {}
-
   async healthCheck(req, res) {
     return res.status(200).json({
       message: "Estamos workando!!!",

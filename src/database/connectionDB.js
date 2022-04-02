@@ -1,10 +1,20 @@
 const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
 class ConnectionDB {
-  constructor() {}
-
   connectToDb() {
+    this.connect(process.env.MONGO_CONNECTION);
+  }
+
+  async connectToFakeDb() {
+    const mongoServer = await MongoMemoryServer.create();
+    const connectString = mongoServer.getUri();
+
+    this.connect(connectString);
+  }
+
+  connect(connectString) {
     mongoose
-      .connect(process.env.MONGO_CONNECTION, {
+      .connect(connectString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })

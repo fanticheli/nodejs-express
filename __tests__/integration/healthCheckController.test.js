@@ -9,9 +9,4 @@ describe("healthCheckController suite tests", () => {
     const response = await request(app).get("/api/v1/healthCheck").send();
     expect(response.status).to.be.equal(200);
   });
-
-  it("should contrucstor of class", async () => {
-    healthCheckController.contructor();
-    expect(healthCheckController.contructor.calledOnce).to.be.ok;
-  });
 });
