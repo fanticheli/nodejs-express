@@ -7,6 +7,7 @@
     "test": "NODE_ENV=test npx mocha --timeout 10000 -w --parallel ./__tests__/**/*.test.js",
     "test:cov": "NODE_ENV=test npx nyc npx mocha --timeout 10000 --parallel ./__tests__/**/*.test.js",
     "dev": "nodemon src/server.js",
+    "loadtest": "npx autocannon -c 100 -d 10 localhost:3000/api/v1/product-external --renderStatusCodes",
     "start": "node src/server.js"
   },
   "repository": {
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/fanticheli/back-conversor-de-moedas-#readme",
   "devDependencies": {
+    "autocannon": "^7.8.1",
     "chai": "^4.3.6",
     "mocha": "^9.2.2",
     "mongodb-memory-server": "^8.4.2",
@@ -33,6 +35,7 @@
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.9",
+    "node-cache": "^5.1.2",
     "swagger-ui-express": "^4.3.0"
   }
 }

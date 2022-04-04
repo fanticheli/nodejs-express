@@ -11,6 +11,7 @@ describe("ProductExternalController suite tests", () => {
 
   it("should return statuscode 200", async () => {
     const response = await request(app).get("/api/v1/product-external").send();
+    await request(app).get("/api/v1/product-external").send();
     expect(response.status).to.be.equal(200);
   });
 });

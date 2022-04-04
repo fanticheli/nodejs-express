@@ -11,6 +11,8 @@ class ConstantMessages {
 
   static TOKEN_NOT_FOUND = "Token não encontrado.";
   static TOKEN_INVALID = "Token inválido.";
+
+  static GETTING_ERROR = "Erro ao consultar."
 }
 
 module.exports = ConstantMessages;
