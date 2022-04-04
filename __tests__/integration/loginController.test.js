@@ -4,7 +4,7 @@ const { expect } = require("chai");
 const app = require("../../src/app");
 const connectionDB = require("../../src/database/connectionDB");
 
-const ConstantMessages = require("../../src/helpers/constant-messages");
+const ConstantMessages = require("../../src/helpers/constantMessages");
 
 describe("LoginController suite tests", () => {
   before(() => {
