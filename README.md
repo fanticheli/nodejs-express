@@ -19,19 +19,19 @@
 
  - Faça o clone para seu ambiente de desenvolvimento;
 
- - Para instalar as dependências do projeto, vá até a raiz e rode o comando: 
+ - Para instalar as dependências do projeto, navegue até a raiz e rode o comando: 
     npm install
 
- - Para rodar a aplicação em ambiente local, rode o comando:
+ - Para rodar a aplicação em ambiente local, navegue até a raiz e rode o comando: 
     npm run dev
 
- - Para rodar o teste de resposta, rode o comando:
+ - Para rodar o teste de resposta, navegue até a raiz e rode o comando: 
     npm run loadtest
 
- - Para rodar o teste unitario em tempo real, rode o comando:
+ - Para rodar o teste unitario em tempo real, navegue até a raiz e rode o comando: 
     npm run test
 
-- Para gerar os arquivos de coverage, rode o comando:
+- Para gerar os arquivos de coverage, navegue até a raiz e rode o comando: 
     npm run test:cov
 
 # ACESSO
