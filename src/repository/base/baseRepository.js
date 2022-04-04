@@ -11,6 +11,13 @@ class BaseRepository {
     }
   }
 
+  async find() {
+    try {
+      return await this.baseModel.find();
+    } catch (error) {
+      throw `Erro ao consultar ${this.baseModel.modelName}`;
+    }
+  }
 }
 
 module.exports = BaseRepository;

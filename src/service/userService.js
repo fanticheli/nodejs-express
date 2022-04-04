@@ -3,13 +3,14 @@ const UserRepository = require("./../repository/userRepository");
 const repository = new UserRepository(UserModel);
 const Comuns = require("../helpers/comuns");
 const ConstantMessages = require("../helpers/constantMessages");
+const ValidationModel = require("../helpers/validationModel");
 
 class UserService {
   async createUser(user) {
     try {
-      if (!this.propertyUserValid(user.userName))
+      if (!ValidationModel.propertyValid(user.userName))
         throw ConstantMessages.NAME_USER_INVALID;
-      if (!this.propertyUserValid(user.secretKey))
+      if (!ValidationModel.propertyValid(user.secretKey))
         throw ConstantMessages.PASSWORD_USER_INVALID;
 
       user.secretKey = await Comuns.encryptPassword(user.secretKey);
@@ -22,7 +23,7 @@ class UserService {
 
   async validateUserAccess(user) {
     try {
-      if (!this.propertyUserValid(user.secretKey))
+      if (!ValidationModel.propertyValid(user.secretKey))
         throw ConstantMessages.PASSWORD_USER_INVALID;
 
       const userDataBase = await this.findUserByUserName(user.userName);
@@ -51,7 +52,7 @@ class UserService {
 
   async findUserByUserName(userName) {
     try {
-      if (!this.propertyUserValid(userName)) {
+      if (!ValidationModel.propertyValid(userName)) {
         throw ConstantMessages.NAME_USER_INVALID;
       }
 
@@ -59,10 +60,6 @@ class UserService {
     } catch (error) {
       throw error;
     }
-  }
-
-  propertyUserValid(property) {
-    return !!property;
   }
 }
 

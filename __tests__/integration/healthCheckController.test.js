@@ -1,6 +1,5 @@
 const request = require("supertest");
 const { expect } = require("chai");
-const healthCheckController = require("../../src/controller/healthCheckController");
 
 const app = require("../../src/app");
 
