@@ -10,6 +10,7 @@ class BaseRepository {
       throw `Erro ao criar ${this.baseModel.modelName}`;
     }
   }
+
 }
 
 module.exports = BaseRepository;
