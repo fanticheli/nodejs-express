@@ -2,7 +2,7 @@ const UserModel = require("./../model/user");
 const UserRepository = require("./../repository/userRepository");
 const repository = new UserRepository(UserModel);
 const Comuns = require("../helpers/comuns");
-const ConstantMessages = require("../helpers/constant-messages");
+const ConstantMessages = require("../helpers/constantMessages");
 
 class UserService {
   async createUser(user) {

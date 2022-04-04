@@ -1,0 +1,73 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Backend-Group-SBF",
+    "description": "Resources for group SBF test"
+  },
+  "paths": {
+    "/api/v1/user": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create a user",
+        "consumes": [],
+        "produces": ["text/plain", "application/json", "text/json"],
+        "parameters": [
+          {
+            "name": "Create",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userName": { "type": "string" },
+                "secretKey": { "type": "string" }
+              },
+              "example": {
+                "userName": "admin",
+                "secretKey": "admin"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/login": {
+      "post": {
+        "tags": ["Login"],
+        "summary": "login as user",
+        "consumes": [],
+        "produces": ["text/plain", "application/json", "text/json"],
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userName": { "type": "string" },
+                "secretKey": { "type": "string" }
+              },
+              "example": {
+                "userName": "admin",
+                "secretKey": "admin"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "definitions": {}
+  }
+}
