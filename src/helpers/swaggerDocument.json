@@ -68,6 +68,70 @@
         }
       }
     },
+    "/api/v1/product-external": {
+      "get": {
+        "tags": ["Recurso de produtos externo"],
+        "summary": "Consultar produtos",
+        "consumes": [],
+        "produces": ["text/plain", "application/json", "text/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/product-internal": {
+      "post": {
+        "tags": ["Recurso de produtos interno"],
+        "summary": "Criar produto",
+        "consumes": [],
+        "produces": ["text/plain", "application/json", "text/json"],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "example": "Gere um token pela api/v1/login e cole aqui."
+            }
+          },
+          {
+            "name": "values",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productName": { "type": "string" },
+                "productListImages": { "type": "array" },
+                "productCurrenciesValues": { "type": "array" }
+              },
+              "example": {
+                "productName": "Novo produto",
+                "productListImages": [
+                  "https://upload-fen-hml.s3.amazonaws.com/%242a%2410%244l.yw4ZpmcMWCpg.aGGoaer2f2cDr9a3oaoZkPfaU0AErq1FEdBDS.jpeg",
+                  "https://upload-fen-hml.s3.amazonaws.com/%242a%2410%24pjw3cHqOA8jua.X42C9xR.5YFr8LB4rtF836bzBMUCQt64oo8Eqz6.jpeg",
+                  "https://upload-fen-hml.s3.amazonaws.com/%242a%2410%246hqjF.GGYifbco2XK1A7/OwiVSy9pir2OwJcEWU4VddL.7VYzEhCe.jpeg"
+                ],
+                "productCurrenciesValues": [
+                  { "currency": "BRL", "value": 1299.99 },
+                  { "currency": "USD", "value": 599.99 },
+                  { "currency": "EUR", "value": 299.99 }
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "definitions": {}
   }
 }
