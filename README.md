@@ -40,12 +40,4 @@
 
     - HEROKU CLOUD: https://back-conversor-de-moedas.herokuapp.com/
     - SWAGGER: https://back-conversor-de-moedas.herokuapp.com/api-docs/
-    - LISTAR PRODUTOS: https://back-conversor-de-moedas.herokuapp.com/api/v1/product-external
-
-# UTILIZAÇÃO
-    O recurso POST /product-internal, só é possivel utilizar com usuário logado;
-
-
-ESPERO QUE GOSTEM!!!
-
-    
+    - LISTAR PRODUTOS: https://back-conversor-de-moedas.herokuapp.com/api/v1/product-external    
