@@ -1,4 +1,4 @@
-# eng-gruposbf-backend-javascript
+# backend-javascript
 
 # RESUMO
     - ApiRest desenvolvida para demonstrar habilidades com javascript + expressjs.
