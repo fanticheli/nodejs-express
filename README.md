@@ -1,5 +1,7 @@
 # backend-javascript
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9e6be7e38a11405aa7dc6790a46ef9d5)](https://app.codacy.com/gh/fanticheli/nodejs-express?utm_source=github.com&utm_medium=referral&utm_content=fanticheli/nodejs-express&utm_campaign=Badge_Grade_Settings)
+
 # RESUMO
     - ApiRest desenvolvida para demonstrar habilidades com javascript + expressjs.
         Nessa aplicação eu optei por colocar alguns recursos para demonstrar de forma efetiva toda minha habilidade para tal desenvolvimento, como por exemplo:
