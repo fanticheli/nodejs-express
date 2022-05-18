@@ -4,7 +4,7 @@ jobs:
     environment:
       CC_TEST_REPORTER_ID: bb4b6d8ecda10518d749b2a6c0a0ec653bb3eedac07a184eb83ca7dbf9db1c2c
     docker:
-      - image: "mileschou/xdebug:7.3"
+      - image: cimg/base:stable
     working_directory: ~/repo
     steps:
       - checkout
