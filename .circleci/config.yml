@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run: node --version
       - run: npm install
-      - run: npm run test
+      - run: npm run test:cov
