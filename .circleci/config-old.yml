@@ -1,29 +1,55 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
-
-env:
-  - CODACY_PROJECT_TOKEN="..."
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+# https://circleci.com/docs/2.0/collect-test-data/#mochajs
+# https://github.com/codeclimate/test-reporter/issues/342
+version: 2
 jobs:
-  test-report-coverage:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Primeiro Passo"
-          command: "echo Hello, World!"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  report-coverage:
-    jobs:
-      - test-report-coverage
+    build:
+      environment:
+        CC_TEST_REPORTER_ID: bb4b6d8ecda10518d749b2a6c0a0ec653bb3eedac07a184eb83ca7dbf9db1c2c
+      docker:
+          - image: circleci/node:12.13.0
+      working_directory: ~/repo
+      steps:
+          - checkout
+          # Update npm
+          - run:
+              name: update-npm
+              command: 'sudo npm install -g npm@latest'
+          # Download and cache dependencies
+          - restore_cache:
+              keys:
+                  - v1-dependencies-{{ checksum "package-lock.json" }}
+                  # fallback to using the latest cache if no exact match is found
+                  - v1-dependencies-
+          - run: 
+              name: Install dependencies
+              command: npm install
+          - save_cache:
+              paths:
+                  - node_modules
+              key: v1-dependencies-{{ checksum "package-lock.json" }}
+          # - run: mkdir reports
+          # Run coverage
+          - run:
+              name: Run coverage
+              command: npm run test:cov
+              when: always
+          # Run coverage report for Code Climate
+          - run:
+              name: Setup Code Climate test-reporter
+              command: |
+                  # download test reporter as a static binary
+                  curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+                  chmod +x ./cc-test-reporter
+                  ./cc-test-reporter before-build
+              when: always
+          - run:
+              name: Send coverage report to Code Climate
+              command:
+                  # nyc report requires that nyc has already been run,
+                  # which creates the .nyc_output folder containing necessary data
+                  ./cc-test-reporter after-build -t lcov
+              when: always
+          # Upload results
+          - store_artifacts: # upload test coverage as artifact
+              path: ./coverage/lcov.info
+              prefix: tests
