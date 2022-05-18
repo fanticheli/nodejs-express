@@ -5,6 +5,20 @@ jobs:
       - image: cimg/node:14.19.2
     steps:
       - checkout
-      - run: node --version
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run: npm install
-      - run: npm run test:cov
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: npm run test
