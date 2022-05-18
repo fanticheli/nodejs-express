@@ -46,5 +46,5 @@ jobs:
           when: always
       # Upload results
       - store_artifacts: # upload test coverage as artifact
-          path: coverage/lcov.info
+          path: ./coverage/lcov.info
           prefix: tests
