@@ -15,7 +15,7 @@
         
         Coloquei ao máximo opções para que meu trabalho seja bem avaliado;
 
-# APLICAÇÂO
+# APLICAÇÃO
 
  - Faça o clone para seu ambiente de desenvolvimento;
 
