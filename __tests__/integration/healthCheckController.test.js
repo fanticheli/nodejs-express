@@ -6,6 +6,6 @@ const app = require("../../src/app");
 describe("healthCheckController suite tests", () => {
   it("should return statuscode 200, server up", async () => {
     const response = await request(app).get("/api/v1/healthCheck").send();
-    expect(response.status).to.be.equal(400);
+    expect(response.status).to.be.equal(200);
   });
 });
