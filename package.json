@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test npx mocha --timeout 10000 -w --parallel ./__tests__/**/*.test.js",
-    "test:cov": "NODE_ENV=test npx nyc npx mocha --timeout 10000 --parallel ./__tests__/**/*.test.js",
+    "test:cov": "NODE_ENV=test npx nyc --reporter lcov npx mocha --timeout 10000 --parallel ./__tests__/**/*.test.js",
     "dev": "nodemon src/server.js",
     "loadtest": "npx autocannon -c 100 -d 10 localhost:3000/api/v1/product-external --renderStatusCodes",
     "start": "node src/server.js"
