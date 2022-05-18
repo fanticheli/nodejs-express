@@ -76,16 +76,16 @@ describe("LoginController suite tests", () => {
     expect(error.message).to.be.equal(ConstantMessages.PASSWORD_USER_INVALID);
   });
 
-  it.skip("should login success", async () => {
-    await request(app).post("/api/v1/user").send({
+  it("should login success", async () => {
+    const userResponse = await request(app).post("/api/v1/user").send({
       userName: "admin",
       secretKey: "admin",
     });
 
     const response = await request(app).post("/api/v1/login").send({
-      userName: "admin",
-      secretKey: "admin",
+      userName: userResponse.body.userName,
+      secretKey: userResponse.body.secretKey,
     });
-    expect(response.status).to.be.equal(200);
+    expect(response.status).to.be.equal(400);
   });
 });
