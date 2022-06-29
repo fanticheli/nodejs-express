@@ -1,3 +1,6 @@
+<a href="https://codeclimate.com/github/fanticheli/nodejs-express/maintainability"><img src="https://api.codeclimate.com/v1/badges/b153fbea31db42b7808c/maintainability" /></a>
+
+<a href="https://codeclimate.com/github/fanticheli/nodejs-express/test_coverage"><img src="https://api.codeclimate.com/v1/badges/b153fbea31db42b7808c/test_coverage" /></a>
 # backend-javascript
 
 # RESUMO
